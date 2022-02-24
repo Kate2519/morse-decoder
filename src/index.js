@@ -39,6 +39,8 @@ const MORSE_TABLE = {
 
 function decode(expr) {
     // write your solution here
+    const digitDecoder = {'00': '', '10' : '.', '11': '-'};
+    return expr.replace(/.{10}/g, symbol => ((symbol == '**********') ? ' ' : MORSE_TABLE[symbol.replace(/../g, pair => digitDecoder[pair])]));
 }
 
 module.exports = {
